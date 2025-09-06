@@ -8,19 +8,13 @@ package ejercicio_01.problema;
  *
  * @author jacks
  */
-public class GameCreator {
 
-    public Game createGame(String type) {
-        Game game = null;
+public abstract class GameFactory {
+    public abstract Game createGame();
 
-        if (type.equals("RPG")) {
-            game = new RPGGame();
-        } else if (type.equals("FPS")) {
-            game = new FPSGame();
-        } else {
-            throw new IllegalArgumentException("Tipo de juego no soportado: " + type);
-        }
-
-        return game;
+    public void playGame() {
+        Game game = createGame();
+        game.start();
+        System.out.println(game.getInfo());
     }
 }

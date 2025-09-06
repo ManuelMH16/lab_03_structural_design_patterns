@@ -15,14 +15,20 @@ public class Cliente {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        GameElementCreator creator = new GameElementCreator();
+    GameElementFactory factory;
 
-        // ❌ PROBLEMA: Nada garantiza que sean compatibles
-        Character pcWarrior = creator.createCharacter("PC", "Warrior");
-        Weapon mobileSwold = creator.createWeapon("Mobile", "Sword"); // Error de compatibilidad!
+    // Cambia la fábrica según la plataforma
+    factory = new PCFactory();
+    Character pcWarrior = factory.createWarrior();
+    Weapon pcSword = factory.createSword();
+    pcWarrior.attack();
+    pcSword.use();
 
-        pcWarrior.attack();
-        mobileSwold.use(); // Inconsistencia visual!
+    factory = new MobileFactory();
+    Character mobileWarrior = factory.createWarrior();
+    Weapon mobileSword = factory.createSword();
+    mobileWarrior.attack();
+    mobileSword.use();
     }
 
 }

@@ -8,27 +8,7 @@ package ejercicio_02.problema;
  *
  * @author jacks
  */
-public class GameElementCreator {
-
-    public Character createCharacter(String platform, String type) {
-        Character character = null;
-
-        if (type.equals("Warrior")) {
-            character = new Warrior(platform);
-        }
-        // Más tipos en el futuro...
-
-        return character;
-    }
-
-    public Weapon createWeapon(String platform, String type) {
-        Weapon weapon = null;
-
-        if (type.equals("Sword")) {
-            weapon = new Sword(platform);
-        }
-        // Más tipos en el futuro...
-
-        return weapon;
-    }
+public interface GameElementFactory {
+    Character createWarrior();
+    Weapon createSword();
 }

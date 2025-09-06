@@ -13,7 +13,7 @@ public class NetworkManager {
     private GameConfig config;
 
     public NetworkManager() {
-        this.config = new GameConfig(); //  Otra instancia diferente
+        this.config = GameConfig.getInstance(); // Singleton
         config.setDebugMode(true); // Configuración diferente
     }
 

@@ -13,7 +13,7 @@ public class GameSession {
     private GameConfig config;
 
     public GameSession() {
-        this.config = new GameConfig(); //  Nueva instancia
+        this.config = GameConfig.getInstance(); // Singleton
         config.setMaxPlayers(50); // Configuración específica
     }
 

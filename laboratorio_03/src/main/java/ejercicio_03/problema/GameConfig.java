@@ -9,16 +9,26 @@ package ejercicio_03.problema;
  * @author jacks
  */
 public class GameConfig {
-
+    private static volatile GameConfig instance;
     private String databaseUrl;
     private boolean debugMode;
     private int maxPlayers;
 
-    // Constructor público permite múltiples instancias
-    public GameConfig() {
+    private GameConfig() {
         this.databaseUrl = "jdbc:mysql://localhost:3306/gamedb";
         this.debugMode = false;
         this.maxPlayers = 100;
+    }
+
+    public static GameConfig getInstance() {
+        if (instance == null) {
+            synchronized (GameConfig.class) {
+                if (instance == null) {
+                    instance = new GameConfig();
+                }
+            }
+        }
+        return instance;
     }
 
     public String getDatabaseUrl() {

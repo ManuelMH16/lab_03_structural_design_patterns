@@ -15,13 +15,13 @@ public class Cliente {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        GameCreator creator = new GameCreator();
+    GameFactory rpgFactory = new RPGFactory();
+    GameFactory fpsFactory = new FPSFactory();
+    GameFactory puzzleFactory = new PuzzleFactory();
 
-        Game rpg = creator.createGame("RPG");
-        rpg.start();
-
-        Game fps = creator.createGame("FPS");
-        fps.start();
+    rpgFactory.playGame();
+    fpsFactory.playGame();
+    puzzleFactory.playGame();
     }
     
 }
